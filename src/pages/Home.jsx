@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Hero from '../components/Home/Hero'
-import All from '../components/Home/lists/all'
+import All from '../components/Home/lists/All'
 import Table from '../components/Home/lists/table'
 
 function Home() {
