@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Hero from '../components/Home/Hero'
 import All from '../components/Home/lists/All'
-import Table from '../components/Home/lists/table'
+import Table from '../components/Home/lists/Table'
 
 function Home() {
     const lists = ["Hamısı", "Tezliklə", "Cədvəl"]
