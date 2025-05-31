@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router";
+
 const MovieCard = ({item}) => {
+  const navigation = useNavigate()
+  const handler = () =>{
+    navigation(`/detail/${item.id}`)
+  }
   return (
     <div 
+      onClick={handler}
       className="cursor-pointer rounded-xl overflow-hidden bg-zinc-800 shadow-lg relative group"
     >
       <div className="w-full h-full overflow-hidden">

@@ -29,7 +29,7 @@ const Footer = () => {
 
         <div className="space-y-2 mx-auto md:mx-0">
           <h4 className="font-semibold">Bizi izləyin</h4>
-          <div className="flex space-x-3 mt-4">
+          <div className="flex mt-4 flex-wrap md:flex-nowrap  gap-3">
             
             <div className="bg-white p-2 rounded-full">
                 <FaInstagram className="text-[#D52B1E] text-2xl"/>

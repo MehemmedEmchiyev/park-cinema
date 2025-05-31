@@ -3,6 +3,7 @@ import { getDetail } from "../../../../services/servics";
 import { MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useSelector } from "react-redux";
 import CustomSkeleton from "./CustomSkeleton";
+import { useNavigate } from "react-router";
 const ITEMS_PER_PAGE = 5;
 const TableElement = () => {
   const { selectedLang ,selectedTheatres } = useSelector(store => store.selector)
@@ -36,7 +37,12 @@ const TableElement = () => {
     currentPage * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE + ITEMS_PER_PAGE
   );
-
+  const navigator = useNavigate()
+  const navigate = (id) => {  
+    console.log(id);
+    
+    navigator(`/seat-selection/${id}`)
+  }
   return (
     <>
     {movies.length ? 
@@ -72,7 +78,7 @@ const TableElement = () => {
               )}
             </div>
 
-            <button className="cursor-pointer flex items-center justify-center bg-[#D52B1E] opacity-65 hover:opacity-100 duration-200 rounded-[20px] w-[100px] h-[36px] px-4 py-2  text-white text-sm hover:bg-[#A81A1A] transition md:!w-[160px]  max-sm:!w-[60px] max-sm:!p-0 max-sm:!text-[12px] max-sm:leading-3">
+            <button onClick={() => navigate(session.id)} className="cursor-pointer flex items-center justify-center bg-[#D52B1E] opacity-65 hover:opacity-100 duration-200 rounded-[20px] w-[100px] h-[36px] px-4 py-2  text-white text-sm hover:bg-[#A81A1A] transition md:!w-[160px]  max-sm:!w-[60px] max-sm:!p-0 max-sm:!text-[12px] max-sm:leading-3">
               Bilet Al
             </button>
           </div>

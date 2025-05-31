@@ -6,6 +6,7 @@
   -ms-overflow-style: none; 
   scrollbar-width: none; 
 }
+/* *{font-family: ;} */
 html::-webkit-scrollbar {width: 11px;}
 html::-webkit-scrollbar-track {background: #2e2e2e;}
 html::-webkit-scrollbar-thumb {

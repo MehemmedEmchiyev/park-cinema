@@ -1,13 +1,13 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
-import Home from './pages/Home'
+import Router from './routing/Router'
 import './style/app.css'
 function App() {
 
   return (
     <>
       <Header />
-      <Home /> 
+      <Router /> 
       <Footer />
     </>
   )
