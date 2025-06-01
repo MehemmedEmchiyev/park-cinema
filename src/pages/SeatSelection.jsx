@@ -6,9 +6,12 @@ import { GoClockFill } from "react-icons/go";
 import GlobalLoader from '../components/GlobalLoader';
 import Display from '../components/Detail/Display.jsx';
 import TicketLegend from '../components/Detail/TicketLegend.jsx';
+import { useSelector } from 'react-redux';
 
 function SeatSelection() {
   const {id} = useParams()
+  const {price} = useSelector(store => store.ticket_price)
+  
   const [movie , setMovie] = useState({})
   const [movies , setMovies] = useState([])
   useEffect(() => {
@@ -75,7 +78,7 @@ function SeatSelection() {
         <Display />
         <div className='flex items-center justify-between py-3'>
             <div className='text-white font-semibold'>
-                Ümumi : 0
+                Ümumi : {price}
             </div>
             <div>
                 <button className='cursor-pointer flex items-center font-semibold justify-center bg-[#D52B1E] opacity-65 hover:opacity-100 duration-200 rounded-[20px] w-[100px] h-[36px] px-4 py-2  text-white text-sm hover:bg-[#A81A1A] transition md:!w-[260px]  max-sm:!w-[60px] max-sm:!p-0 max-sm:!text-[12px] max-sm:leading-3'>Bilet Al</button>

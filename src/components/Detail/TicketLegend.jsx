@@ -17,10 +17,8 @@ const TicketLegend = () => {
         </div>
       </div>
       <div className="flex space-x-4">
-        <span>Uşaq <strong>4 AZN</strong></span>
         <span>Ailə <strong>4 AZN</strong></span>
         <span>Böyük <strong>5 AZN</strong></span>
-        <span>İkili <strong>10 AZN</strong></span>
       </div>
     </div>
   );

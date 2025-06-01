@@ -1,14 +1,33 @@
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
-
-
-
+import { useDispatch } from "react-redux";
+import { changePrice } from "../../store/ticketTotalPriceSlice";
 const Display = () => {
+    const dispatch = useDispatch()
     const [ rowI , setRowi ] = useState("")
     const [ colI , setColi ] = useState("")
-
+    const [prices , setPrices] = useState([
+      [0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ])
+    useEffect(() => {
+        const total = prices.reduce((acc,arr) => {
+          return acc + arr.reduce((sum,price) => sum + price , 0)
+        },0)
+        
+        dispatch(changePrice(total))
+    },[prices])
+    
     const [seatLayout,setSeatLayout] = useState([
       [null, 1, null, 1, 1, 1],        
       [1, 1, 1, 1, 1],                 
@@ -19,48 +38,68 @@ const Display = () => {
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],  
-      [null, null, 3, 4, 1, 1, 1, 1, 1, 1]
+      [null, null, 1, 4, 1, 1, 1, 1, 1, 1]
     ])
     const [uzvSayi , setUzvSayi ] = useState(0)
     const [aileStatue , setAileStatue] = useState(false)
-    console.log(uzvSayi);
-    
-    const handler = (row,index) => {
-        if(uzvSayi == 3){
-            setAileStatue(false)
+
+    const handler = (row, index) => {
+      if (seatLayout[row][index] === 2) {
+        setTotalPrice()
+        ( uzvSayi <= 4 && uzvSayi > 0) && setUzvSayi(uzvSayi - 1)
+        select(row, index)
+        return
+      }       
+      if (aileStatue) {
+        setRowi("");
+        setColi("");
+        select(row, index, "aile");
+      }
+      else {
+            setRowi(row);
+            setColi(index);
         }
-        if(aileStatue){
-            setRowi("")
-            setColi("")
-            setUzvSayi(uzvSayi + 1)
-            select(row,index,"")
-        }   
-        else{
-            setRowi(row)
-            setColi(index)
-        }
-    }
-    const select = (row,col,arg) => {
-        if(arg == "aile" ) {
-            setUzvSayi(uzvSayi + 1)
-            setAileStatue(true)
-            setRowi("")
-            setColi("")
-        }
-        setSeatLayout(prev => {
-            const update = [...prev.map(item => [...item])]
-            if(update[row][col] == 1){
-                update[row][col] = 2
+    };
+    const select = (row, col, arg) => {
+    setSeatLayout(prev => {
+        const update = [...prev.map(item => [...item])];
+        if (update[row][col] === 2) {
+            update[row][col] = 1;
+            if (aileStatue) {
+              setUzvSayi(0);
+              setAileStatue(false);
             }
-            else{
-                update[row][col] = 1
+            return update;
+        }
+        if (arg === "aile") {
+            if (uzvSayi >= 4) return update; 
+            update[row][col] = 2;
+            setPrices(item => {
+              const uptadePrice = [...item.map(elem => [...elem])]
+              uptadePrice[row][col] = 4
+              return uptadePrice
+            }
+            )
+            setUzvSayi(prev => prev + 1);
+            if (uzvSayi + 1 >= 4) {
+                setAileStatue(false);
+            } else {
+                setAileStatue(true);
             }
             return update
-        })
-        setRowi('')
-        setColi('')
-    }
-
+        }
+        update[row][col] = 2;
+        setPrices(item => {
+              const uptadePrice = [...item.map(elem => [...elem])]
+              uptadePrice[row][col] = 5
+              return uptadePrice
+            }
+        )
+        return update
+    })
+    setRowi('')
+    setColi('')
+}
     return (
     <div className={`bg-[#4D4D4D] overflow-auto w-full  text-white py-25 px-10 rounded-2xl min-h-screen flex flex-col items-start`}>
       <div className="flex justify-between w-full">
@@ -89,7 +128,7 @@ const Display = () => {
                     <div className={`absolute bottom-[35px] right-[-50px] rounded-xl overflow-hidden z-20 bg-[rgba(255,255,255,.9)]  ${rowI == rowIndex && colI == seatIndex ? "block" : "hidden"}`}>
                         <ul className="text-black text-center flex flex-col gap-3">
                             {
-                               uzvSayi < 3 && <li onClick={() => select(rowIndex,seatIndex,"aile")} className={`py-1  w-[100px] hover:text-white cursor-pointer hover:bg-red-500 `}>Aile</li>
+                              uzvSayi < 3 && <li onClick={() => select(rowIndex,seatIndex,"aile")} className={`py-1  w-[100px] hover:text-white cursor-pointer hover:bg-red-500 `}>Aile</li>
                             }
                             <li onClick={() => select(rowIndex,seatIndex,"boyuk")} className="py-1  w-[100px] hover:text-white cursor-pointer hover:bg-red-500">Böyük</li>
                         </ul>
@@ -102,10 +141,10 @@ const Display = () => {
       </div>
       <div className="flex flex-col gap-2">
 
-        <div onClick={() => zoom(1)} className="w-[30px] h-[30px] rounded-[5px] flex items-center  justify-center bg-[#D9DADB]">
+        <div className="w-[30px] h-[30px] rounded-[5px] flex items-center  justify-center bg-[#D9DADB]">
             <FaPlus className="text-black "/>
         </div>
-        <div onClick={() => zoom(-1)} className="w-[30px] h-[30px] rounded-[5px] flex items-center  justify-center bg-[#D9DADB]">
+        <div className="w-[30px] h-[30px] rounded-[5px] flex items-center  justify-center bg-[#D9DADB]">
             <FaMinus className="text-black "/>
         </div>
 
