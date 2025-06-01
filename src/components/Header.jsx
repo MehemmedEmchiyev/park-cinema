@@ -1,7 +1,7 @@
 import Bars from './Bars';
 import MobileMenu from './MobileMenu';
 import useMenuStatue from '../hooks/useMenuStatue';
-import LangSelect from './LangSelect';
+import LangSelect from './ui/LangSelect';
 import { Link } from 'react-router';
 
 function Header() {
@@ -24,7 +24,9 @@ function Header() {
                     <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>Aksiyalar</li>
                     <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>FAQ</li>
                     <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>Əlaqə</li>
-                    <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>Profil</li>
+                    <Link className='hover:text-[#D52B1E] duration-300 cursor-pointer ' to={'/auth'}>
+                        Profil
+                    </Link>
                 </menu>
             </div>    
         </div>

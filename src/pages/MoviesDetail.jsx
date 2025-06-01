@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { getAllMovie } from '../services/servics.js'
-import GlobalLoader from '../components/GlobalLoader.jsx'
+import GlobalLoader from '../components/ui/GlobalLoader.jsx'
 import Table from '../components/Home/lists/Table'
 
 function MoviesDetail() {

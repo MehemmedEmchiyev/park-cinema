@@ -2,7 +2,7 @@ import Selects from '../Selects'
 import MovieCard from './listElements/MovieCard'
 import {getAllMovie} from '../../../services/servics.js'
 import { useEffect, useState } from 'react'
-import Loader from '../../Loader.jsx'
+import Loader from '../../ui/Loader.jsx'
 import { useSelector } from 'react-redux' 
 
 function All() { 

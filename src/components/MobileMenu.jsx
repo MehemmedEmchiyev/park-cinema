@@ -1,4 +1,4 @@
-import LangSelect from './LangSelect';
+import LangSelect from './ui/LangSelect';
 import MenuItem from './MenuItem'
 
 function MobileMenu({statue,change}) {

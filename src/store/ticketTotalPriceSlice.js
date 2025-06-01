@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    price : 0
+    price : 0,
+    place : []
 }
 
 export const ticketPrice = createSlice({
@@ -10,10 +11,13 @@ export const ticketPrice = createSlice({
     reducers : {
         changePrice : (state , action) => {
             state.price = action.payload
+        },
+        changePlace : (state , action) => {
+            state.place = action.payload
         }
     }
 }) 
 
-export const { changePrice } = ticketPrice.actions
+export const { changePrice , changePlace} = ticketPrice.actions
 
 export default ticketPrice.reducer
