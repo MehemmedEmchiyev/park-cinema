@@ -6,6 +6,9 @@ import BuyTicket from "../pages/BuyTicket"
 import Auth from "../pages/Auth"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
+import Theatres from "../pages/Theatres"
+import TheatresDetail from "../pages/TheatresDeatil"
+import FAQ from "../pages/FAQ"
 
 function Router() {
   return (
@@ -18,6 +21,9 @@ function Router() {
           <Route path="" element={<Login />}/>
           <Route path="register" element={<Register />}/>
         </Route>
+        <Route path="/theatres" element={<Theatres />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/theatres-detail/:id" element={<TheatresDetail />}/>
     </Routes>
   )
 }

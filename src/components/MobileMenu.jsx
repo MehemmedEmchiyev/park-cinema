@@ -13,7 +13,8 @@ function MobileMenu({statue,change}) {
                 {
                     src : "https://new.parkcinema.az/_next/image?url=%2Ficons%2Fglasses.png&w=128&q=75" , 
                     title : 'Profile',
-                    style : ""
+                    style : "",
+                    url : '/auth'
                 }
             }/>
             <MenuItem values={
@@ -27,7 +28,8 @@ function MobileMenu({statue,change}) {
                 {
                     src : "https://new.parkcinema.az/_next/image?url=%2Ficons%2Ffilm.png&w=128&q=75" , 
                     title : 'Kinoteartlar',
-                    style : "col-span-2 justify-center"
+                    style : "col-span-2 justify-center",
+                    url : '/theatres'
                 }
             }/>
             <MenuItem values={
@@ -48,7 +50,8 @@ function MobileMenu({statue,change}) {
                 {
                     src : "https://new.parkcinema.az/icons/faq.svg" , 
                     title : 'FAQ',
-                    style : ""
+                    style : "",
+                    url : '/faq'
                 }
             }/>
             <MenuItem values={

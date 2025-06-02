@@ -20,9 +20,13 @@ function Header() {
             </div>
             <div className='hidden md:block'>
                 <menu className='flex items-center gap-[60px] text-[#d9dadb] '>
-                    <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>Kinoteartlar</li>
+                    <Link className='hover:text-[#D52B1E] duration-300 cursor-pointer ' to={'/theatres'}>
+                        Kinoteartlar
+                    </Link>
                     <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>Aksiyalar</li>
-                    <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>FAQ</li>
+                    <Link className='hover:text-[#D52B1E] duration-300 cursor-pointer ' to={'/faq'}>
+                        FAQ
+                    </Link>
                     <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>Əlaqə</li>
                     <Link className='hover:text-[#D52B1E] duration-300 cursor-pointer ' to={'/auth'}>
                         Profil
