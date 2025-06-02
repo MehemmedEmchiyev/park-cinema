@@ -17,14 +17,25 @@ A responsive and user-friendly cinema ticket reservation application. Users can 
 
 ## 🛠️ Technologies Used
 
-| Technology       | Description                              |
-| ---------------- | ---------------------------------------- |
-| React            | For building the user interface          |
-| Redux Toolkit    | For global state management              |
-| React Router DOM | For client-side routing and navigation   |
-| Formik + Yup     | For form handling and validation         |
-| Fetch API        | For making API requests                  |
-| CSS/SCSS         | For responsive design and custom styling |
+| Technology          | Description                              |
+| ------------------- | ---------------------------------------- |
+| React               | For building the user interface          |
+| Redux Toolkit       | For global state management              |
+| React Router DOM    | For client-side routing and navigation   |
+| Formik + Yup        | For form handling and validation         |
+| Fetch API           | For making API requests                  |
+| MUI (Material UI)   | For styled components and UI elements    |
+| Tailwind CSS        | For responsive and utility-first styling |
+| Styled Components   | For component-scoped styles              |
+| Emotion             | CSS-in-JS styling support                |
+| Swiper              | For touch sliders and carousels          |
+| React Toastify      | For toast notifications                  |
+| React Icons         | For icon integration                     |
+| UUID                | For generating unique identifiers        |
+| Date-fns / Dayjs    | For date manipulation                    |
+| jQuery              | (Legacy/utility use)                     |
+| Classnames          | For conditional class management         |
+| React Scroll To Top | For back-to-top scroll button            |
 
 ---
 
@@ -37,7 +48,9 @@ A responsive and user-friendly cinema ticket reservation application. Users can 
 * ⚛️ Modern React architecture (Redux Toolkit, React Router, Formik)
 * 🧪 Form validation with Formik & Yup
 * 📡 Dynamic data fetching via Fetch API
-
+* 🎨 Combination of Tailwind, MUI, and Styled Components for modern UI
+* 🔔 Toast notifications for feedback
+* 📆 Date pickers and phone inputs for better UX
 
 ## 🚀 Installation & Running Locally
 
@@ -80,7 +93,7 @@ park-cinema/
 │   ├── schemas/        # Yup validation schemas
 │   ├── services/       # API call functions using Fetch
 │   ├── store/          # Redux Toolkit store setup
-│   ├── style/          # SCSS or CSS files for styling
+│   ├── style/          # CSS files for styling
 │   ├── App.jsx         # Main App component
 │   └── main.jsx        # React entry point
 ├── package.json
