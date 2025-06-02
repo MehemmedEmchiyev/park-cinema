@@ -9,6 +9,7 @@ import Register from "../pages/Register"
 import Theatres from "../pages/Theatres"
 import TheatresDetail from "../pages/TheatresDeatil"
 import FAQ from "../pages/FAQ"
+import Actions from "../pages/Actions"
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
         </Route>
         <Route path="/theatres" element={<Theatres />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/actions" element={<Actions />} />
         <Route path="/theatres-detail/:id" element={<TheatresDetail />}/>
     </Routes>
   )

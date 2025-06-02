@@ -36,7 +36,8 @@ function MobileMenu({statue,change}) {
                 {
                     src : "https://new.parkcinema.az/_next/image?url=%2Ficons%2Falarm.png&w=128&q=75" , 
                     title : 'Aksiyalar',
-                    style : "col-span-2 justify-center"
+                    style : "col-span-2 justify-center",
+                    url : '/actions'
                 }
             }/>
             <MenuItem values={

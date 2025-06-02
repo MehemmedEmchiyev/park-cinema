@@ -23,7 +23,9 @@ function Header() {
                     <Link className='hover:text-[#D52B1E] duration-300 cursor-pointer ' to={'/theatres'}>
                         Kinoteartlar
                     </Link>
-                    <li className='hover:text-[#D52B1E] duration-300 cursor-pointer '>Aksiyalar</li>
+                    <Link className='hover:text-[#D52B1E] duration-300 cursor-pointer ' to={'/actions'}>
+                        Aksiyalar
+                    </Link>
                     <Link className='hover:text-[#D52B1E] duration-300 cursor-pointer ' to={'/faq'}>
                         FAQ
                     </Link>
